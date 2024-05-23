@@ -1,0 +1,12 @@
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\BL\bin\Debug\BL.dll.config
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\BL\bin\Debug\BL.dll
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\BL\bin\Debug\BL.pdb
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\BL\bin\Debug\EntityFramework.dll
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\BL\bin\Debug\EntityFramework.SqlServer.dll
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\BL\bin\Debug\EntityFramework.xml
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\BL\bin\Debug\EntityFramework.SqlServer.xml
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\BL\obj\Debug\BL.csproj.AssemblyReference.cache
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\BL\obj\Debug\BL.csproj.CopyComplete
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\BL\obj\Debug\BL.dll
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\BL\obj\Debug\BL.pdb

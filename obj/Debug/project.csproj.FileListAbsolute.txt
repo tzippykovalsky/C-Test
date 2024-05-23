@@ -1,0 +1,18 @@
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\bin\Debug\project.exe.config
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\bin\Debug\project.exe
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\bin\Debug\project.pdb
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\bin\Debug\BL.dll
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\bin\Debug\EntityFramework.dll
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\bin\Debug\BL.pdb
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\bin\Debug\BL.dll.config
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\bin\Debug\EntityFramework.xml
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\obj\Debug\project.csproj.AssemblyReference.cache
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\obj\Debug\project.csproj.SuggestedBindingRedirects.cache
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\obj\Debug\project.csproj.CoreCompileInputs.cache
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\obj\Debug\project.csproj.CopyComplete
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\obj\Debug\project.exe
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\obj\Debug\project.pdb
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\bin\Debug\EntityFramework.SqlServer.dll
+Y:\הנדסת תוכנה- תשפד\שנה ב\אחוזה\אסתי פרידמן\#c\project\bin\Debug\EntityFramework.SqlServer.xml
+D:\ציפי\תכנות\שנה ב\C#\project\obj\Debug\project.exe
+D:\ציפי\תכנות\שנה ב\C#\project\obj\Debug\project.pdb

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EstyfridmanMathTestModelStoreContainer" CdmEntityContainer="EstyfridmanMathTestEntities">
+    <EntitySetMapping Name="AmericanAnswers">
+      <EntityTypeMapping TypeName="EstyfridmanMathTestModel.AmericanAnswers">
+        <MappingFragment StoreEntitySet="AmericanAnswers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumQuestion" ColumnName="NumQuestion" />
+          <ScalarProperty Name="Answers" ColumnName="Answers" />
+          <ScalarProperty Name="IsTrue" ColumnName="IsTrue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Marks">
+      <EntityTypeMapping TypeName="EstyfridmanMathTestModel.Marks">
+        <MappingFragment StoreEntitySet="Marks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="DateTest" ColumnName="DateTest" />
+          <ScalarProperty Name="Mark" ColumnName="Mark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questions1">
+      <EntityTypeMapping TypeName="EstyfridmanMathTestModel.Questions1">
+        <MappingFragment StoreEntitySet="Questions1">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="Percent" ColumnName="Percent" />
+          <ScalarProperty Name="IsAmerican" ColumnName="IsAmerican" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="EstyfridmanMathTestModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

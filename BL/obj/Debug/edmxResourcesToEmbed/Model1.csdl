@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EstyfridmanMathTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AmericanAnswers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumQuestion" Type="Int32" Nullable="false" />
+    <Property Name="Answers" Type="Int32" Nullable="false" />
+    <Property Name="IsTrue" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Questions1" Relationship="Self.FK_AmericanAnswers_Questions1" FromRole="AmericanAnswers" ToRole="Questions1" />
+  </EntityType>
+  <EntityType Name="Marks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="DateTest" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Mark" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Marks_User" FromRole="Marks" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Questions1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Question" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Answer" Type="Int32" Nullable="false" />
+    <Property Name="Percent" Type="Int32" Nullable="false" />
+    <Property Name="IsAmerican" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AmericanAnswers" Relationship="Self.FK_AmericanAnswers_Questions1" FromRole="Questions1" ToRole="AmericanAnswers" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Marks" Relationship="Self.FK_Marks_User" FromRole="User" ToRole="Marks" />
+  </EntityType>
+  <Association Name="FK_AmericanAnswers_Questions1">
+    <End Role="Questions1" Type="Self.Questions1" Multiplicity="1" />
+    <End Role="AmericanAnswers" Type="Self.AmericanAnswers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Questions1">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AmericanAnswers">
+        <PropertyRef Name="NumQuestion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Marks_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Marks" Type="Self.Marks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Marks">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EstyfridmanMathTestEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AmericanAnswers" EntityType="Self.AmericanAnswers" />
+    <EntitySet Name="Marks" EntityType="Self.Marks" />
+    <EntitySet Name="Questions1" EntityType="Self.Questions1" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <AssociationSet Name="FK_AmericanAnswers_Questions1" Association="Self.FK_AmericanAnswers_Questions1">
+      <End Role="Questions1" EntitySet="Questions1" />
+      <End Role="AmericanAnswers" EntitySet="AmericanAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Marks_User" Association="Self.FK_Marks_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Marks" EntitySet="Marks" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

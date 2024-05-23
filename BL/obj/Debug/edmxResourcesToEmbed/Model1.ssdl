@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EstyfridmanMathTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AmericanAnswers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumQuestion" Type="int" Nullable="false" />
+    <Property Name="Answers" Type="int" Nullable="false" />
+    <Property Name="IsTrue" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Marks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="DateTest" Type="datetime" Nullable="false" />
+    <Property Name="Mark" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Questions1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Question" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Answer" Type="int" Nullable="false" />
+    <Property Name="Percent" Type="int" Nullable="false" />
+    <Property Name="IsAmerican" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AmericanAnswers_Questions1">
+    <End Role="Questions1" Type="Self.Questions1" Multiplicity="1" />
+    <End Role="AmericanAnswers" Type="Self.AmericanAnswers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Questions1">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AmericanAnswers">
+        <PropertyRef Name="NumQuestion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Marks_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Marks" Type="Self.Marks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Marks">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EstyfridmanMathTestModelStoreContainer">
+    <EntitySet Name="AmericanAnswers" EntityType="Self.AmericanAnswers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Marks" EntityType="Self.Marks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Questions1" EntityType="Self.Questions1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AmericanAnswers_Questions1" Association="Self.FK_AmericanAnswers_Questions1">
+      <End Role="Questions1" EntitySet="Questions1" />
+      <End Role="AmericanAnswers" EntitySet="AmericanAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Marks_User" Association="Self.FK_Marks_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Marks" EntitySet="Marks" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

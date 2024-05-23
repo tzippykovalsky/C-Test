@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EstyfridmanMathTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AmericanAnswers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumQuestion" Type="int" Nullable="false" />
+          <Property Name="Answers" Type="int" Nullable="false" />
+          <Property Name="IsTrue" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Marks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="DateTest" Type="datetime" Nullable="false" />
+          <Property Name="Mark" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Questions1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Question" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Answer" Type="int" Nullable="false" />
+          <Property Name="Percent" Type="int" Nullable="false" />
+          <Property Name="IsAmerican" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AmericanAnswers_Questions1">
+          <End Role="Questions1" Type="Self.Questions1" Multiplicity="1" />
+          <End Role="AmericanAnswers" Type="Self.AmericanAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions1">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AmericanAnswers">
+              <PropertyRef Name="NumQuestion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Marks_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Marks" Type="Self.Marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Marks">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EstyfridmanMathTestModelStoreContainer">
+          <EntitySet Name="AmericanAnswers" EntityType="Self.AmericanAnswers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Marks" EntityType="Self.Marks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Questions1" EntityType="Self.Questions1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AmericanAnswers_Questions1" Association="Self.FK_AmericanAnswers_Questions1">
+            <End Role="Questions1" EntitySet="Questions1" />
+            <End Role="AmericanAnswers" EntitySet="AmericanAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Marks_User" Association="Self.FK_Marks_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Marks" EntitySet="Marks" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EstyfridmanMathTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AmericanAnswers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumQuestion" Type="Int32" Nullable="false" />
+          <Property Name="Answers" Type="Int32" Nullable="false" />
+          <Property Name="IsTrue" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Questions1" Relationship="Self.FK_AmericanAnswers_Questions1" FromRole="AmericanAnswers" ToRole="Questions1" />
+        </EntityType>
+        <EntityType Name="Marks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="DateTest" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Mark" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Marks_User" FromRole="Marks" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Questions1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Question" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Answer" Type="Int32" Nullable="false" />
+          <Property Name="Percent" Type="Int32" Nullable="false" />
+          <Property Name="IsAmerican" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AmericanAnswers" Relationship="Self.FK_AmericanAnswers_Questions1" FromRole="Questions1" ToRole="AmericanAnswers" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Marks" Relationship="Self.FK_Marks_User" FromRole="User" ToRole="Marks" />
+        </EntityType>
+        <Association Name="FK_AmericanAnswers_Questions1">
+          <End Role="Questions1" Type="Self.Questions1" Multiplicity="1" />
+          <End Role="AmericanAnswers" Type="Self.AmericanAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions1">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AmericanAnswers">
+              <PropertyRef Name="NumQuestion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Marks_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Marks" Type="Self.Marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Marks">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EstyfridmanMathTestEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AmericanAnswers" EntityType="Self.AmericanAnswers" />
+          <EntitySet Name="Marks" EntityType="Self.Marks" />
+          <EntitySet Name="Questions1" EntityType="Self.Questions1" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_AmericanAnswers_Questions1" Association="Self.FK_AmericanAnswers_Questions1">
+            <End Role="Questions1" EntitySet="Questions1" />
+            <End Role="AmericanAnswers" EntitySet="AmericanAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Marks_User" Association="Self.FK_Marks_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Marks" EntitySet="Marks" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EstyfridmanMathTestModelStoreContainer" CdmEntityContainer="EstyfridmanMathTestEntities">
+          <EntitySetMapping Name="AmericanAnswers">
+            <EntityTypeMapping TypeName="EstyfridmanMathTestModel.AmericanAnswers">
+              <MappingFragment StoreEntitySet="AmericanAnswers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NumQuestion" ColumnName="NumQuestion" />
+                <ScalarProperty Name="Answers" ColumnName="Answers" />
+                <ScalarProperty Name="IsTrue" ColumnName="IsTrue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Marks">
+            <EntityTypeMapping TypeName="EstyfridmanMathTestModel.Marks">
+              <MappingFragment StoreEntitySet="Marks">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="DateTest" ColumnName="DateTest" />
+                <ScalarProperty Name="Mark" ColumnName="Mark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questions1">
+            <EntityTypeMapping TypeName="EstyfridmanMathTestModel.Questions1">
+              <MappingFragment StoreEntitySet="Questions1">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="Percent" ColumnName="Percent" />
+                <ScalarProperty Name="IsAmerican" ColumnName="IsAmerican" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="EstyfridmanMathTestModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

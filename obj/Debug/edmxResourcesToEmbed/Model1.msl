@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AEmployeeDBEstyMintzModelStoreContainer" CdmEntityContainer="AEmployeeDBEstyMintzEntities">
+    <EntitySetMapping Name="Customer_tbl">
+      <EntityTypeMapping TypeName="AEmployeeDBEstyMintzModel.Customer_tbl">
+        <MappingFragment StoreEntitySet="Customer_tbl">
+          <ScalarProperty Name="CustID" ColumnName="CustID" />
+          <ScalarProperty Name="CustName" ColumnName="CustName" />
+          <ScalarProperty Name="CustAddress" ColumnName="CustAddress" />
+          <ScalarProperty Name="CustCity" ColumnName="CustCity" />
+          <ScalarProperty Name="CustPhone" ColumnName="CustPhone" />
+          <ScalarProperty Name="CustFax" ColumnName="CustFax" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
